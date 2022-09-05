@@ -1,6 +1,9 @@
 # CS5001
-Senior Design
+Senior Design - Fall 2022
 
-Contributors:
+## Project Description:
+TBD
+
+### Contributors:
   - Nicholas Jefferis
   - Casey Schablein
