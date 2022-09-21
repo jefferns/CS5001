@@ -2,7 +2,8 @@
 Senior Design - Fall 2022
 
 ## Project Description:
-TBD
+**Spotify Speed Dating**
+  - Rapidly discover and save new music. 
 
 ### Contributors:
   - Nicholas Jefferis
