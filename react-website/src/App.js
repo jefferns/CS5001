@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login'
+import { fetchAccessTokens } from './components/Login';
+import Dashboard from './components/Dashboard';
+import { useEffect, useState } from 'react';
+
+
 
 function App() {
+  const [token, setToken] = useState('');
+  // const [code, setCode] = useState('');
+
+  const loadToken = (code) => {
+    fetchAccessTokens(code)
+    .then(response => response.json())
+    .then(response => {
+      if(!response.access_token) return;
+      setToken(response.access_token);
+    });
+  };
+
+  useEffect(()=> {
+    if(token) return;
+    const queryString = window.location.search;
+    if(!queryString) return;
+    const urlParams = new URLSearchParams(queryString);
+    const code_param = urlParams.get('code');
+    if(!code_param) return;
+    // setCode(code_param);
+    loadToken(code_param);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { token
+        ? <Dashboard token={token}/>
+        : <Login/>
+      }
     </div>
   );
 }
