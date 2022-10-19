@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [token, setToken] = useState('');
-  // const [code, setCode] = useState('');
 
   const loadToken = (code) => {
     fetchAccessTokens(code)
@@ -26,7 +25,6 @@ function App() {
     const urlParams = new URLSearchParams(queryString);
     const code_param = urlParams.get('code');
     if(!code_param) return;
-    // setCode(code_param);
     loadToken(code_param);
   }, []);
 

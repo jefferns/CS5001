@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { transferPlayback } from '../api';
 
-function Player({token, track}) {
+function Player({token, track, seeds}) {
 
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
@@ -96,9 +96,7 @@ function Player({token, track}) {
           </button>
         </div>
       </div>
-      : <div className='container'>
-          <b> No Spotify Player instance </b>
-        </div>
+      : <b> No Spotify Player instance </b>
       }
     </div>
   );
