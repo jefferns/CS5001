@@ -1,11 +1,14 @@
 import React from 'react';
+import './seedingItem.css';
 
 
 const SeedItem = ({id, seed, handleRemove}) => {
   return ( 
     <div className="seed-item" id={id}>
-      {seed.name}
-      <button title="remove-seed" onClick={() => handleRemove(id)}>
+      <div className="seed-name">
+        {seed.name}
+      </div>
+      <button className='xout remove' type='button' onClick={() => handleRemove(id)}>
         x
       </button>
     </div>

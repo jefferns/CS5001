@@ -76,3 +76,5 @@ export const getRecommendations = async (token, seeds, type) => {
   })
   return response;
 }
+
+export const playSong(device_id, )

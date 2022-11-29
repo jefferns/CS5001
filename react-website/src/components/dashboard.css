@@ -1,0 +1,17 @@
+.dashboard-container{
+  display: flex;
+  flex-direction: column;
+}
+.upper-dash{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.lower-dash{
+  margin: 30px auto;
+  justify-content: center;
+}
+.dash-item{
+  padding: 10px 40px;
+}

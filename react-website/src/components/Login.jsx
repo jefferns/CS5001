@@ -59,9 +59,9 @@ export default function Login() {
   };
 
   return (
-    <div className='btn login-btn'>
+    <div>
       <h1>Welcome!</h1>
-      <button onClick={ handleLogin }>
+      <button className='btn' type='button' onClick={ handleLogin }>
         Log in with Spotify
       </button>
     </div>
