@@ -37,10 +37,10 @@ const Seeding = ({
     getRecommendations(token, seeds, seed_type)
     .then(response => response.json())
     .then(response => {
-      setRecommendations(response.tracks);
+      let tracks = response.tracks.filter((track) => !!track.preview_url?.length);
+      setRecommendations(tracks);
+      setCurrentTrack(tracks[0]);
       setDisplayingRecs(true);
-      setCurrentTrack(response.tracks[0])
-      console.log(response.tracks);
     });
   };
 

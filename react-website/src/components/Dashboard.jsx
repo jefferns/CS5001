@@ -12,6 +12,7 @@ export default function Dashboard({ token }) {
   const [displayRecs, setDisplayingRecs] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(
     {
+      preview_url: '',
       name: '',
       album: { images: [{url:''}]},
       artists: [{name:''}]
@@ -19,7 +20,7 @@ export default function Dashboard({ token }) {
   );
 
 
-
+  
   return (
     <div className="dashboard-container">
       <div className='upper-dash'>
@@ -37,10 +38,7 @@ export default function Dashboard({ token }) {
       </div>
       <div className='lower-dash'>
         {displayRecs 
-          ? <Player
-              token={token}
-              track={currentTrack}
-            />
+          ? <Player track={currentTrack}/>
           : null
         }
       </div>

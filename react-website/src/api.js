@@ -65,8 +65,8 @@ export const getRecommendations = async (token, seeds, type) => {
   // append seed id to query url
   seeds.forEach(seed => query_url = query_url.concat(seed.id + ','));
   // remove trailing ','
-  query_url = query_url.slice(0, -1)
-  
+  query_url = query_url.slice(0, -1);
+  query_url += '&limit=100';
   const response = await fetch(URL+`/recommendations?${query_url}`, {
     method: 'GET',
     headers: {
