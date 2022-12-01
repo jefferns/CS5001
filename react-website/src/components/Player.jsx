@@ -8,14 +8,10 @@ function Player({track}) {
     let source = document.getElementById('source');
     source.src = track.preview_url;
 
+    player.volume = 0.5;
     player.load();
     player.play();
   }, [track])
-  // const handleNext = () => {
-  //   console.log('track #1: ', track);
-  //   changeSong();
-  //   console.log('track #2: ', track)
-  // }
 
 
   return (
@@ -36,8 +32,7 @@ function Player({track}) {
           {track.artists[0].name}
         </div>
       </div>
-      <audio id='player' autoPlay controls volume='0.5'>
-      {/* onEnded={handleNext} */}
+      <audio id='player' autoPlay controls>
         <source id='source' src={track.preview_url} type='audio/mpeg' width='250px'/>
       </audio>
     </div>
