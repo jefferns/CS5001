@@ -2,5 +2,7 @@
   /* border:1px solid rgb(134, 134, 134); */
 }
 .seed-wrapper{
+  background-color: rgb(238, 238, 238);
   border:1px solid rgb(134, 134, 134);
+  border-radius: 10px;
 }

@@ -66,7 +66,6 @@ const Seeding = ({
 
   const handleRemove = (id) => {
     setSeeds(seeds.filter((seed) => seed.id !== id) || []);
-    console.log(seeds);
     if (!seeds.length) setDisplayingRecs(false);
   };
 
@@ -84,6 +83,12 @@ const Seeding = ({
     if(selected.indexOf('top') === -1) return;
     seedWithTopItems();
   }, [selected]);
+
+  useEffect(() => {
+    if(!seeds.length) return;
+    let bottom_seed = document.getElementsByClassName('seed-item')[seeds.length-1];
+    bottom_seed.style = 'border-bottom: 0px solid rgb(0, 0, 0)';
+  }, [seeds]);
 
 
   return (

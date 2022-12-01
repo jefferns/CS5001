@@ -3,8 +3,7 @@
   flex-direction: row;
   margin-right: 0px;
   max-width: 300px;
-  background-color: rgb(238, 238, 238);
-  border-bottom:1px solid rgb(134, 134, 134);
+  border-bottom: 1px solid rgb(134, 134, 134);
 }
 .seed-name{
   text-align: left;
@@ -15,7 +14,6 @@
 }
 .remove {
   width: 40px;
-  /* height: 41px; */
   margin-left: 10px;
 }
 .xout{

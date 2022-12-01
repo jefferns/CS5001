@@ -69,7 +69,7 @@ const Discovery = ({
     <div className="discovery-wrapper">
       <div className="banner">
         <div className='banner-btn' onClick={handleClick}>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <line x1="5" y1="12" x2="19" y2="12" />
             <line x1="5" y1="12" x2="11" y2="18" />
@@ -77,7 +77,7 @@ const Discovery = ({
           </svg>
         </div>
         <div className='banner-btn'>
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <circle cx="5" cy="12" r="1" />
             <circle cx="12" cy="12" r="1" />
@@ -105,6 +105,21 @@ const Discovery = ({
             items={matches}
             show={true}
           />
+          {matches.length
+            ? <button className="export-btn">
+                <div className="text-wrapper">
+                  <div className="export-text">
+                      Export Playlist 
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" style={{'margin':'auto', 'margin-left':'0'}} width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                      <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" />
+                    </svg>
+                </div>
+              </button>
+            : null
+          }
         </div>
       </div>
     </div>
