@@ -2,13 +2,18 @@ import React, { useState, useEffect } from 'react';
 
 function Player({track}) {
 
+  const [volume, setVolume] = useState(.5);
+
+  const handleVolumeChange = (event) => {
+    setVolume(event.target.volume);
+  }
 
   useEffect(()=>{
     let player = document.getElementById('player');
     let source = document.getElementById('source');
     source.src = track.preview_url;
 
-    player.volume = 0.5;
+    player.volume = volume;
     player.load();
     player.play();
   }, [track])
@@ -32,7 +37,7 @@ function Player({track}) {
           {track.artists[0].name}
         </div>
       </div>
-      <audio id='player' autoPlay controls>
+      <audio id='player' autoPlay controls onVolumeChange={handleVolumeChange}>
         <source id='source' src={track.preview_url} type='audio/mpeg' width='250px'/>
       </audio>
     </div>

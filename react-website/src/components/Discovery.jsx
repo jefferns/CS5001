@@ -5,8 +5,6 @@ import List from './List';
 import './discovery.css';
 
 
-
-
 const Discovery = ({
   currentTrack,
   recommendations,
@@ -17,9 +15,7 @@ const Discovery = ({
   setDiscoveryMode,
   setRecommendations,
 }) => {
-
   const [matches, setMatches] = useState([]);
-
 
   const handleClick = () => {
     setDiscoveryMode(false);
@@ -37,7 +33,6 @@ const Discovery = ({
       : new_style = 'background-image: linear-gradient(to right, rgba(94,177,93,1), rgba(94,177,93,1), rgba(255,255,255,0))';
     event.target.style = new_style;
   };
- 
 
   const handleDrop = (event) => {
     event.preventDefault();
