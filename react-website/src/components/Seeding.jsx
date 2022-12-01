@@ -16,18 +16,21 @@ const seedingOptions = [
 ];
 
 const Seeding = ({
-  token, 
+  token,
+  seeds,
+  seed_type,
+  setSeeds,
+  setSeedType,
   setCurrentTrack, 
   setDisplayingRecs, 
   setRecommendations 
 }) => {
   const [selected, setSelected] = useState(seedingOptions[0].value);
   const [search_results, setSearchResults] = useState([]);
-  const [seeds, setSeeds] = useState([]);
-  const [seed_type, setSeedType] = useState('tracks');
 
   const handleChange = event => {
     setSeeds([]);
+    setRecommendations([]);
     setSelected(event.target.value);
     setSeedType(event.target.value);
   };
@@ -54,16 +57,19 @@ const Seeding = ({
       setSearchResults(results);
     })
   };
+
   const handleSelect = event => {
     const result = search_results.find(element => element.id === event.target.value);
     setSeeds([...seeds, result]);
     setSearchResults([]);
   }
+
   const handleRemove = (id) => {
     setSeeds(seeds.filter((seed) => seed.id !== id) || []);
     console.log(seeds);
     if (!seeds.length) setDisplayingRecs(false);
   };
+
   const seedWithTopItems = () => {
     const type = selected.substring(4);
     getTopItems(token, type)

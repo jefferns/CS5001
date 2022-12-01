@@ -1,4 +1,4 @@
-.rec-container{
+.list-container{
   width: 350px;
   max-height: 400px;
   overflow-y: scroll;
@@ -7,12 +7,10 @@
   background-color: rgb(236, 236, 236);
   border:1px solid rgb(134, 134, 134);
 }
-.rec-container > h3{
+.list-container > h3{
   margin: 0;
   padding: 5px;
   position: sticky;
   top: 0;
   background-color: lightgray;
-}
-.rec-container > rec-body{
 }

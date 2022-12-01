@@ -2,12 +2,14 @@ import './App.css';
 import Login from './components/Login'
 import { fetchAccessTokens } from './components/Login';
 import Dashboard from './components/Dashboard';
+// import Discovery from './components/Discovery';
 import { useEffect, useState } from 'react';
 
 
 
 function App() {
   const [token, setToken] = useState('');
+  // const [discoveryMode, setDiscoveryMode] = useState(false);
 
   const loadToken = (code) => {
     fetchAccessTokens(code)
@@ -31,6 +33,9 @@ function App() {
   return (
     <div className="App">
       { token
+        // ? discoveryMode
+        //   ? <Discovery/>
+        //   : <Dashboard token={token} setDiscoveryMode={setDiscoveryMode}/>
         ? <Dashboard token={token}/>
         : <Login/>
       }

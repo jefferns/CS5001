@@ -1,0 +1,60 @@
+.discovery-wrapper{
+  display:flex;
+  flex-direction: column;
+}
+
+.banner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100px;
+  background-color: rgb(0, 66, 0);
+  border-bottom-right-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.banner-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: auto;
+}
+.banner-btn:hover{
+  background-color:grey;
+}
+.icon{
+  margin-top: 25%;
+}
+
+.discovery-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+}
+
+.drop-area{
+  width: 17%;
+  height: 300px;
+}
+
+.right{
+  width: 20%;
+  min-width: 200px;
+  right: 0;
+}
+
+.left{
+  display:flex;
+  flex-direction: row;
+  width: 80%;
+}
+.left > #left {
+  margin-left: auto;
+}
+.left > #right{
+  margin-right: auto;
+}

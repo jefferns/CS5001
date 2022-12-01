@@ -1,9 +1,9 @@
-import './recommendationCard.css';
+import './listItem.css';
 
 
-const RecommendationCard = ({data}) => {
+const ListItem = ({data}) => {
   return (
-    <div className='rec-card' key={data.id} id={data.id}>
+    <div className='list-item' key={data.id} id={data.id}>
       <div className="title">
         {data.name}
       </div>
@@ -14,4 +14,4 @@ const RecommendationCard = ({data}) => {
   );
 }
  
-export default RecommendationCard;
+export default ListItem;
