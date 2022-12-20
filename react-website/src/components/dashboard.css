@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 .upper-dash{
+  max-height: 450px;
   padding-top: 10px;
   display: flex;
   flex-direction: row;

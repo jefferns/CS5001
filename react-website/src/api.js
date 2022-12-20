@@ -55,6 +55,18 @@ export const getTopItems = async (token, type, time_range='medium_term', limit=5
   return response;
 }
 
+export const getMe = async (token) => {
+  //https://developer.spotify.com/documentation/web-api/reference/#/operations/get-current-users-profile
+  const response = await fetch(URL + '/me', {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json',
+    },
+  })
+  return response;
+}
+
 export const getRecommendations = async (token, seeds, type) => {
   // True if 'tracks' in seed type. This means [seeds] contains track items
   const tracks = type.indexOf('track') > -1;
@@ -67,7 +79,7 @@ export const getRecommendations = async (token, seeds, type) => {
   // remove trailing ','
   query_url = query_url.slice(0, -1);
   query_url += '&limit=100';
-  const response = await fetch(URL+`/recommendations?${query_url}`, {
+  const response = await fetch(URL + `/recommendations?${query_url}`, {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + token,
@@ -77,4 +89,40 @@ export const getRecommendations = async (token, seeds, type) => {
   return response;
 }
 
-// export const playSong(device_id, )
+export const createPlaylist = async (
+  token,
+  user_id,
+  name,
+  is_public=false,
+  is_collaborative=false,
+  description='test description'
+) => {
+  const response = await fetch(URL+`/users/${user_id}/playlists`, {
+    method: 'POST',
+    body: `{
+      "name":"${name}",
+      "collaborative":${is_collaborative},
+      "public":${is_public},
+      "description":"${description}"
+    }`,
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json',
+    },
+  })
+  return response;
+}
+
+export const addTracksToPlaylist = async (token, playlist_id, uris) => {
+  let body_uris = '';
+  uris.forEach(uri => body_uris += `"${uri}",`);
+  const response = await fetch(URL+`/playlists/${playlist_id}/tracks`, {
+    method: 'POST',
+    body: `{"uris":[${body_uris.substring(0, body_uris.length - 1)}]}`,
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json',
+    },
+  })
+  return response;
+}

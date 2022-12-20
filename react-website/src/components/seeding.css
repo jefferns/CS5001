@@ -1,8 +1,17 @@
 .seeding-container{
-  /* border:1px solid rgb(134, 134, 134); */
+  padding: 20px 0px;
+  width: 350px;
+  border: 5px solid rgb(0, 66, 0);
+  border-radius: 10px;
+  background-color: white;
+}
+.seeding-container > select {
+  max-width: 300px;
 }
 .seed-wrapper{
+  margin: auto;
   background-color: rgb(238, 238, 238);
   border:1px solid rgb(134, 134, 134);
   border-radius: 10px;
+  max-width: 300px;
 }

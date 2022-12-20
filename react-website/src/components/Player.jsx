@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './player.css';
 
 function Player({track}) {
 
@@ -26,7 +27,8 @@ function Player({track}) {
           src={track.album.images[1].url}
           alt='Album art not available'
           draggable='true'
-          style={{'height':'300px'}}
+          style={{'height':'300px', 'width':'300px'}}
+          className='album-art'
         />
       </div>
       <div className='player-info'>

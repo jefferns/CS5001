@@ -1,9 +1,14 @@
-.player-wrapper{
-
+.player-wrapper {
+  border: solid rgb(0, 66, 0) 4px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  max-width: 308px;
+  background-color: white;
 }
-.player-title{
-  
+.player-title {
+  color: rgb(0, 66, 0);
+  font-weight: bold;
 }
-.player-artist{
-
+.player-album:hover {
+  cursor: grab;
 }

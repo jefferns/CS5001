@@ -5,6 +5,7 @@ import GoButton from './GoButton';
 import Discovery from './Discovery';
 import './dashboard.css';
 import { useEffect } from 'react';
+import Banner from './Banner';
 
 
 export default function Dashboard({ token }) {
@@ -21,6 +22,13 @@ export default function Dashboard({ token }) {
       artists: [{name:''}]
     }
   );
+  const [settings, setSettings] = useState(
+    {
+      time_range: 'medium_term',   //'short_term' | 'medium_term' | 'long_term'
+      target_popularity: 'default',
+      volume: '100',
+    }
+  );
 
   useEffect(()=>{
     if(!recommendations.length) setDisplayingRecs(false);
@@ -29,12 +37,14 @@ export default function Dashboard({ token }) {
 
   return (
     <>
+    <Banner discoveryMode={discoveryMode} setDiscoveryMode={setDiscoveryMode}/>
     {discoveryMode
      ? <Discovery
         currentTrack={currentTrack}
         recommendations={recommendations}
         setCurrentTrack={setCurrentTrack}
         setDiscoveryMode={setDiscoveryMode}
+        token={token}
        />
      : <div className="dashboard-container">
         <div className='upper-dash'>

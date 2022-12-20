@@ -20,7 +20,9 @@
   background-color: transparent;
   border-color: transparent;
   margin-right: 0;
+  color: rgb(247, 107, 107);
 }
 .xout:hover{
   background-color: rgb(247, 107, 107);
+  color: white;
 }

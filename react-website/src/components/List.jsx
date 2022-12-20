@@ -15,9 +15,10 @@ const List = ({
       ? <div className="list-container">
           <h3>{title}: </h3>
           <div className='list-body'>
-            {items.map(recommendation => 
-              <ListItem data={recommendation} key={recommendation.id}/>
-            )}
+            {items.length ?
+              items.map(recommendation => <ListItem data={recommendation} key={recommendation.id}/>)
+              : <p>No matches yet</p>
+            }
           </div>
         </div>
       : null

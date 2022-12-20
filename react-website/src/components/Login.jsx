@@ -8,6 +8,7 @@ const redirect_URI = 'http://localhost:3000';
 const scopes = [
   'streaming',
   'playlist-modify-public',
+  'playlist-modify-private',
   'user-library-modify',
   'user-modify-playback-state',
   'user-top-read',

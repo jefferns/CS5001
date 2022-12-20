@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './seedingItem.css';
 
 
 const SeedItem = ({id, seed, handleRemove}) => {
+  useEffect(() => {
+    let seeds = document.getElementsByClassName('remove');
+    seeds[0].style = 'border-top-right-radius: 9px';
+    seeds[seeds.length-1].style = 'border-bottom-right-radius: 9px';
+  }, []);
+
   return ( 
     <div className="seed-item" id={id}>
       <div className="seed-name">

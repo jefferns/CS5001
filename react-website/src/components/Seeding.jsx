@@ -88,7 +88,7 @@ const Seeding = ({
     if(!seeds.length) return;
     let bottom_seed = document.getElementsByClassName('seed-item')[seeds.length-1];
     bottom_seed.style = 'border-bottom: 0px solid rgb(0, 0, 0)';
-  }, [seeds]);
+  }, [handleRemove, seeds]);
 
 
   return (
