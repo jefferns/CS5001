@@ -4,7 +4,6 @@ Senior Design - Fall 2022
 ### Contributors:
   - Nicholas Jefferis
   - Casey Schablein
-  - Mark Tarbell* (Has gone MIA)
   
   
 # Table of Contents
