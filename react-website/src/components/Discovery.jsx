@@ -9,10 +9,12 @@ const Discovery = ({
   currentTrack,
   recommendations,
   token,
-  seeds,
-  seed_type,
+  settings,
   setCurrentTrack,
   setDiscoveryMode,
+  setSettings,
+  seeds,
+  seed_type,
   setRecommendations,
 }) => {
   const [matches, setMatches] = useState([]);
@@ -101,7 +103,12 @@ const Discovery = ({
             onDragOver={allowDrop}
             onDragLeave={handleDragLeave}
           />
-          <Player changeSong={changeSong} track={currentTrack}/>
+          <Player
+            changeSong={changeSong}
+            track={currentTrack}
+            settings={settings}
+            setSettings={setSettings}
+          />
           <div id='right' className="drop-area"
             onDrop={handleDrop}
             onDragOver={allowDrop}

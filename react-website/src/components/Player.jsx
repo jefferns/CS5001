@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './player.css';
 
-function Player({track}) {
-
-  const [volume, setVolume] = useState(.5);
+function Player({track, settings, setSettings}) {
 
   const handleVolumeChange = (event) => {
-    setVolume(event.target.volume);
+    setSettings({...settings, volume:(event.target.volume * 100)});
   }
 
   useEffect(()=>{
@@ -14,10 +12,10 @@ function Player({track}) {
     let source = document.getElementById('source');
     source.src = track.preview_url;
 
-    player.volume = volume;
+    player.volume = settings.volume / 100;
     player.load();
     player.play();
-  }, [track])
+  }, [track.preview_url, settings.volume])
 
 
   return (

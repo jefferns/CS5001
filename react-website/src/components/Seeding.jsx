@@ -20,6 +20,7 @@ const Seeding = ({
   seeds,
   seed_type,
   setSeeds,
+  settings,
   setSeedType,
   setCurrentTrack, 
   setDisplayingRecs, 
@@ -71,7 +72,8 @@ const Seeding = ({
 
   const seedWithTopItems = () => {
     const type = selected.substring(4);
-    getTopItems(token, type)
+    console.log(settings.time_range);
+    getTopItems(token, type, settings.time_range)
     .then(response => response.json())
     .then(response => {
       if(!response.items) return; 
