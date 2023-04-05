@@ -72,7 +72,6 @@ const Seeding = ({
 
   const seedWithTopItems = () => {
     const type = selected.substring(4);
-    console.log(settings.time_range);
     getTopItems(token, type, settings.time_range)
     .then(response => response.json())
     .then(response => {
@@ -84,13 +83,13 @@ const Seeding = ({
   useEffect(() => {
     if(selected.indexOf('top') === -1) return;
     seedWithTopItems();
-  }, [selected]);
+  }, [selected, settings]);
 
   useEffect(() => {
     if(!seeds.length) return;
     let bottom_seed = document.getElementsByClassName('seed-item')[seeds.length-1];
     bottom_seed.style = 'border-bottom: 0px solid rgb(0, 0, 0)';
-  }, [handleRemove, seeds]);
+  }, [seeds]);
 
 
   return (

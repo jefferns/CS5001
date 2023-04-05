@@ -61,6 +61,7 @@ export default function Login() {
 
   return (
     <div>
+      <img src="logo_transparent.png" style={{height: '100px'}}/>
       <h1>Welcome!</h1>
       <button className='btn' type='button' onClick={ handleLogin }>
         Log in with Spotify

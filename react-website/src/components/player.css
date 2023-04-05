@@ -12,3 +12,6 @@
 .player-album:hover {
   cursor: grab;
 }
+.album-art {
+  user-select: none;
+}

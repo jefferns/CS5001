@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { addTracksToPlaylist, createPlaylist, getMe, getRecommendations } from '../api';
 import Player from './Player';
 import List from './List';
@@ -19,6 +19,7 @@ const Discovery = ({
 }) => {
   const [matches, setMatches] = useState([]);
   const [id, setId] = useState('');
+  const [playlistURL, setPlaylistURL] = useState('');
 
   const addToMatches = () => {
     setMatches([...matches, currentTrack])
@@ -29,11 +30,7 @@ const Discovery = ({
     matches.forEach((song) => {
       uris.push(song.uri)
     })
-    addTracksToPlaylist(token, id, uris)
-    .then(response => response.json())
-    .then(response => {
-
-    })
+    addTracksToPlaylist(token, id, uris);
   }
 
   const allowDrop = (event) => {
@@ -56,9 +53,16 @@ const Discovery = ({
       if(!matches) return;
       // add each song to the new playlist
       addMatchesToPlaylist(playlist_id);
-    })
-
+      setPlaylistURL(response.external_urls.spotify);
+      alert('Successfully exported playlist!');
+    });
   };
+
+  const handleCopy = () => {
+    if(!playlistURL) return;
+    navigator.clipboard.writeText(playlistURL);
+    alert('Copied the text: ' + playlistURL);
+  }
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -122,7 +126,8 @@ const Discovery = ({
             show={true}
           />
           {matches.length
-            ? <button className="export-btn" onClick={handleClick}>
+            ? <div className='export-btns-wrapper'>
+              <button className="export-btn" onClick={handleClick}>
                 <div className="text-wrapper">
                   <div className="export-text">
                     Export Playlist 
@@ -134,6 +139,22 @@ const Discovery = ({
                   </svg>
                 </div>
               </button>
+              {playlistURL ? 
+                  <button className="copy-btn" onClick={handleCopy}>
+                    <div className="text-wrapper">
+                      <div className="export-text">
+                        Copy Link
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                      </svg>
+                    </div>
+                  </button>
+                : null
+                }
+            </div>
+
             : null
           }
         </div>
