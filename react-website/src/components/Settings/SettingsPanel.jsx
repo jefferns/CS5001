@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './settingsPanel.css';
+import { AdvancedSettings } from './AdvancedSettings';
 
 
 const SettingsPanel = ({settings, show, setSettings, setShowSettings}) => {
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   const ref = useRef(null);
   useEffect(() => {
@@ -24,12 +26,15 @@ const SettingsPanel = ({settings, show, setSettings, setShowSettings}) => {
 
   const handleTimeChange = (event) => {
     setSettings({...settings, time_range: event.target.value});
-  }
+  };
+
+  const toggleAdvanced = () => {
+    setShowAdvanced(!showAdvanced);
+  };
 
   return show
     ? <div ref={ref} className='settings-panel'>
         <div className='setting-option' id='time'>
-          <label>Top Items Time: </label>
           <select name='time-period' id='time' onChange={handleTimeChange} defaultValue={settings.time_range}>
             <option value='short_term'> Short term </option>
             <option value='medium_term'> Medium term </option>
@@ -55,6 +60,9 @@ const SettingsPanel = ({settings, show, setSettings, setShowSettings}) => {
             onChange={ handleVolumeChange }
           />
         </div>
+        { showAdvanced && <AdvancedSettings/> }
+        
+        <button onClick={toggleAdvanced}>{showAdvanced ? "Less" : "Advanced"}</button>
       </div>
     : null;
 }

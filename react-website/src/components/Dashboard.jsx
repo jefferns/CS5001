@@ -4,7 +4,7 @@ import List from './List';
 import GoButton from './GoButton';
 import Discovery from './Discovery';
 import Banner from './Banner';
-import SettingsPanel from './SettingsPanel';
+import SettingsPanel from './Settings/SettingsPanel';
 import './dashboard.css';
 
 
